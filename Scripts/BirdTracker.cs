@@ -7,7 +7,7 @@ public class BirdTracker : MonoBehaviour
     [SerializeField] private Transform _bird;
 
     private Camera _camera;
-    private Vector3 _offset = new Vector3(0, 0, -10);
+    private Vector3 _offset = new Vector3(5, 0, -10);
 
     private void Start()
     {

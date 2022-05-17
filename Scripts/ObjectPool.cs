@@ -5,28 +5,27 @@ using System.Linq;
 
 public class ObjectPool : MonoBehaviour
 {
-    [SerializeField] protected GameObject Prefab;
     [SerializeField] protected int Capacity;
     [SerializeField] protected GameObject Container;
 
     private Camera _camera;
     private List<GameObject> _pool = new List<GameObject>();  
 
-    public void Initialize()
+    public void Initialize(GameObject prefab)
     {
         _camera = Camera.main;
         for (int i = 0; i < Capacity; i++)
         {
-            var poolObject = Instantiate(Prefab, Container.transform);
+            var poolObject = Instantiate(prefab, Container.transform);
             poolObject.SetActive(false);
             _pool.Add(poolObject);
         }
     }
 
-    public bool GetObject()
+    protected bool GetObject(out GameObject result)
     {
-        var poolObject = _pool.FirstOrDefault(obj => obj.activeSelf == false);
-        return poolObject != null;
+        result = _pool.FirstOrDefault(obj => obj.activeSelf == false);
+        return result != null;
     }
 
     public void ResetPool()
