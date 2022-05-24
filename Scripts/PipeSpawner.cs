@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PipeSpawner : ObjectPool
@@ -31,6 +29,10 @@ public class PipeSpawner : ObjectPool
                 Vector3 spawnPoint = new Vector3(transform.position.x, spawnPositionY, transform.position.z);
                 pipe.SetActive(true);
                 pipe.transform.position = spawnPoint;
+            }
+            else
+            {
+                ResetPool();
             }
         }
     }

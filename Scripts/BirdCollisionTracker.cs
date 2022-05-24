@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BirdCollisionTracker : MonoBehaviour
@@ -8,7 +6,7 @@ public class BirdCollisionTracker : MonoBehaviour
     {
         if (collision.gameObject.TryGetComponent(out Bird bird))
         {
-            Time.timeScale = 0;
+            bird.Die();
         }
     }
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -23,6 +21,7 @@ public class BirdMover : MonoBehaviour
         _maxRotationZ = Quaternion.Euler(0, 0, _maxRotation); 
         _minRotationZ = Quaternion.Euler(0, 0, _minRotation);
     }
+
     private void Update()
     {
         CheckInput();
